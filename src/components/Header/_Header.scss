@@ -7,14 +7,15 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 
     &-logo {
-        width: 120px;
-        margin: 0.5em 1.5em;
+        width: 130px;
+        margin: 0.6em 1.5em;
     }
 
     &-nav {
         color: white;
         width: 100%;
-        
+        font-size: 17px;
+
         & ul {
             display: flex;
             justify-content: space-around;

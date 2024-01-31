@@ -1,0 +1,31 @@
+@import '@scss/variables';
+
+.aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	position: fixed;
+	left: 0;
+	width: 5.5em;
+	height: 100%;
+	overflow: hidden;
+	background: $nav-bg;
+	text-align: center;
+
+    &-buttons {
+		margin-top: -6em;
+	}
+
+    & p {
+        position: absolute;
+        bottom: 12em;
+        left: -2em;
+        width: max-content;
+        margin: 0;
+        transform: rotate(-90deg);
+        color: white;
+        font-size: 12px;
+        font-weight: 500;
+    }
+}
