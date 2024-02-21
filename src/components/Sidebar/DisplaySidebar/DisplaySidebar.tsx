@@ -1,12 +1,12 @@
 import { FC } from "react";
-import './_Sidebar.scss';
+import './_DisplaySidebar.scss';
 import SidebarButton from "../SidebarButton/SidebarButton";
-import yoga from '../../assets/icon-yoga.svg';
-import swimming from '../../assets/icon-swimming.svg';
-import biking from '../../assets/icon-biking.svg';
-import haltere from '../../assets/icon-haltere.svg';
+import yoga from '../../../assets/icon-yoga.svg';
+import swimming from '../../../assets/icon-swimming.svg';
+import biking from '../../../assets/icon-biking.svg';
+import haltere from '../../../assets/icon-haltere.svg';
 
-const Sidebar:FC = () => {
+const DisplaySidebar:FC = () => {
     return (
         <aside className="aside">
             <div className="aside-buttons">
@@ -21,4 +21,4 @@ const Sidebar:FC = () => {
     )
 };
 
-export default Sidebar;
+export default DisplaySidebar;

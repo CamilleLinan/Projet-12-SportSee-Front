@@ -1,9 +1,9 @@
 import { FC, useContext } from "react";
 import Header from "../../components/Header/Header";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import DisplaySidebar from "../../components/Sidebar/DisplaySidebar/DisplaySidebar";
 import AuthContext from "../../context/authContext";
 import Title from "../../components/Title/Title";
-import DisplayKeyDataCard from "../../components/DisplayKeyDataCard/DisplayKeyDataCard";
+import DisplayKeyDataCard from "../../components/KeyData/DisplayKeyDataCard/DisplayKeyDataCard";
 
 const Home:FC = () => {
     const authCtx = useContext(AuthContext);
@@ -19,7 +19,7 @@ const Home:FC = () => {
     return (
         <>
             <Header />
-            <Sidebar />
+            <DisplaySidebar />
             <Title firstName={firstName} />
             <DisplayKeyDataCard keyData={keyData} />
         </>

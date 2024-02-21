@@ -1,10 +1,10 @@
 import { FC } from "react";
 import "./_DisplayKeyDataCard.scss";
 import KeyDataCard from "../KeyDataCard/KeyDataCard";
-import energy from '../../assets/icon-energy.svg';
-import chicken from '../../assets/icon-chicken.svg';
-import apple from '../../assets/icon-apple.svg';
-import cheeseburger from '../../assets/icon-cheeseburger.svg';
+import energy from '../../../assets/icon-energy.svg';
+import chicken from '../../../assets/icon-chicken.svg';
+import apple from '../../../assets/icon-apple.svg';
+import cheeseburger from '../../../assets/icon-cheeseburger.svg';
 
 interface KeyDataProps {
     keyData: {
