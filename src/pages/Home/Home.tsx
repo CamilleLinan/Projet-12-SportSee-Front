@@ -6,8 +6,7 @@ import Title from "../../components/Title/Title";
 import DisplayKeyDataCard from "../../components/KeyData/DisplayKeyDataCard/DisplayKeyDataCard";
 
 const Home:FC = () => {
-    const authCtx = useContext(AuthContext);
-    const { userData, isLoading } = authCtx;
+    const { userData, isLoading } = useContext(AuthContext);
 
     if (isLoading) {
         return <p>Chargement...</p>;
