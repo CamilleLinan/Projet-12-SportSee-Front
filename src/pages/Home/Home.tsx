@@ -4,6 +4,7 @@ import DisplaySidebar from "../../components/Sidebar/DisplaySidebar/DisplaySideb
 import AuthContext from "../../context/authContext";
 import Title from "../../components/Title/Title";
 import DisplayKeyDataCard from "../../components/KeyData/DisplayKeyDataCard/DisplayKeyDataCard";
+import ScoreGraph from "../../components/ScoreGraph/ScoreGraph";
 
 const Home:FC = () => {
     const { userData, isLoading } = useContext(AuthContext);
@@ -14,6 +15,7 @@ const Home:FC = () => {
 
     const firstName = userData?.userInfos.firstName;
     const keyData = userData?.keyData;
+    const todayScore = userData?.todayScore || userData?.score;
 
     return (
         <>
@@ -21,6 +23,7 @@ const Home:FC = () => {
             <DisplaySidebar />
             <Title firstName={firstName} />
             <DisplayKeyDataCard keyData={keyData} />
+            <ScoreGraph score={todayScore} />
         </>
     )
 };

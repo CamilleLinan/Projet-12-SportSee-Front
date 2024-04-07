@@ -20,7 +20,7 @@ export const AuthContextProvider = (props: ProviderProps) => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const userId = 12;
+                const userId = 18;
                 const userData = await UserService.getUserById(userId);
                 setUserData(userData);
                 setIsLoading(false);

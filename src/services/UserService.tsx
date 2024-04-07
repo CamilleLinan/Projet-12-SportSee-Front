@@ -1,6 +1,6 @@
 import axios from "axios";
 import { User } from "../modeles/user.modele";
-import { Activity } from "../modeles/Activity.modele";
+import { Activity } from "../modeles/activity.modele";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
