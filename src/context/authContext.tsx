@@ -1,9 +1,9 @@
 import { createContext, useEffect, useState } from "react"
-import { UserType } from "../types/UserType";
+import { User } from "../modeles/user.modele";
 import UserService from "../services/UserService";
 
 interface UserData {
-    userData: UserType | undefined;
+    userData: User | undefined;
     isLoading: boolean;
 }
 
@@ -14,7 +14,7 @@ interface ProviderProps {
 const AuthContext = createContext<UserData>({ userData: undefined, isLoading: true });
 
 export const AuthContextProvider = (props: ProviderProps) => {
-    const [ userData, setUserData ] = useState<UserType | undefined>();
+    const [ userData, setUserData ] = useState<User | undefined>();
     const [ isLoading, setIsLoading ] = useState(true);
 
     useEffect(() => {

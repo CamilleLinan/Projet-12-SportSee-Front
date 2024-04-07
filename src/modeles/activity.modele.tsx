@@ -1,4 +1,4 @@
-export interface ActivityType {
+export interface Activity {
     userId: number;
     sessions: Session[];
 }
