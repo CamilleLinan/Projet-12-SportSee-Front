@@ -1,11 +1,12 @@
-export interface UserType {
+export interface User {
     id: number;
     userInfos: {
         firstName: string;
         lastName: string;
         age: number;
     };
-    todayScore: number;
+    todayScore?: number;
+    score?: number;
     keyData: {
         calorieCount: number;
         proteinCount: number;
