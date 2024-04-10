@@ -14,7 +14,14 @@ const GoalChart:FC<Score> = ({ score }) => {
         },
     ];
 
-    const COLORS = ['#FF0000', '#FFFFFF']
+    const COLORS = ['#FF0000', '#FFFFFF'];
+
+    const calculateEndAngle = (score: number | undefined) => {
+        if (score) {
+            const normalizedScore = Math.min(Math.max(score, 0), 1);
+            return 90 + (normalizedScore * 360);
+        }
+    };
 
     return (
         <section className="score-container">
@@ -28,7 +35,7 @@ const GoalChart:FC<Score> = ({ score }) => {
                         innerRadius={60}
                         outerRadius={70}
                         startAngle={90}
-                        endAngle={220}
+                        endAngle={calculateEndAngle(score)}
                         cornerRadius={"100%"}
                     >
                         {data.map((_entry, index) => (
