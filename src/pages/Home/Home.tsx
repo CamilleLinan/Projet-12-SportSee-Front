@@ -7,6 +7,7 @@ import Title from "../../components/Title/Title";
 import DisplayKeyDataCard from "../../components/KeyData/DisplayKeyDataCard/DisplayKeyDataCard";
 import GoalChart from "../../components/Charts/GoalChart/GoalChart";
 import PerformanceChart from "../../components/Charts/PerformanceChart/PerformanceChart";
+import AverageSessionChart from "../../components/Charts/AverageSessionChart/AverageSessionChart";
 
 const Home:FC = () => {
     const { userData, isLoading } = useContext(AuthContext);
@@ -25,11 +26,14 @@ const Home:FC = () => {
             <Header />
             <DisplaySidebar />
             <Title firstName={firstName} />
-            <DisplayKeyDataCard keyData={keyData} />
-            <div className="charts-medium">
-                <PerformanceChart userId={userId} />
-                <GoalChart score={todayScore} />
-            </div>
+            <section className="charts">
+                <div className="charts-medium">
+                    <AverageSessionChart userId={userId} />
+                    <PerformanceChart userId={userId} />
+                    <GoalChart score={todayScore} />
+                </div>
+                <DisplayKeyDataCard keyData={keyData} />
+            </section>
         </>
     )
 };

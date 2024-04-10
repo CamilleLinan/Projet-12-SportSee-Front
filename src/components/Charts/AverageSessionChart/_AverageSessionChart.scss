@@ -1,0 +1,21 @@
+.sessions-container {
+    width: 250px;
+    height: 250px;
+    background-color: #FF0101;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-label {
+        color: white;
+        opacity: 0.7;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+
+        & p {
+            margin: 0;
+        }
+    }
+}
