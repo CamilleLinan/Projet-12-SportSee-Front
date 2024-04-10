@@ -1,14 +1,12 @@
 import { FC } from "react";
-import "./_ScoreGraph.scss";
+import "./_GoalChart.scss";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
 interface Score {
     score: number | undefined;
 }
 
-const ScoreGraph:FC<Score> = ({ score }) => {
-    console.log(score);
-
+const GoalChart:FC<Score> = ({ score }) => {
     const data = [
         {
             name: 'score',
@@ -40,7 +38,7 @@ const ScoreGraph:FC<Score> = ({ score }) => {
                 </PieChart>
             </ResponsiveContainer>
 
-			<div className="score-container-label center">
+			<div className="score-container-label">
 				<p className="percent">
 					{score && score * 100}%
 				</p>
@@ -51,4 +49,4 @@ const ScoreGraph:FC<Score> = ({ score }) => {
     );
 }
 
-export default ScoreGraph;
+export default GoalChart;

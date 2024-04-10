@@ -1,12 +1,10 @@
 .score-container {
-    margin-left: 11em;
-    width: 240px;
-    height: 230px;
+	margin-left: 11em;
+    width: 250px;
+    height: 250px;
     background-color: #FBFBFB;
     position: relative;
-}
 
-.score-container {
 	&-title {
 		position: absolute;
 		top: 1.5rem;
