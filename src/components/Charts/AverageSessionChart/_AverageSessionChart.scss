@@ -19,3 +19,14 @@
         }
     }
 }
+
+.custom-tooltip {
+    background-color: #FFFFFF;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+
+    & p {
+        margin: 0;
+    }
+}
