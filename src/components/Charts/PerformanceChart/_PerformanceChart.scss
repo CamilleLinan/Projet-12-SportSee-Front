@@ -1,7 +1,9 @@
+@import '@scss/variables';
+
 .radar-container {
     width: 250px;
     height: 250px;
-    background-color: #282D30;
+    background-color: $try-clr;
     position: relative;
     display: flex;
     align-items: center;

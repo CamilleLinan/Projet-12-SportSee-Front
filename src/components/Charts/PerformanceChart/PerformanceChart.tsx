@@ -1,11 +1,10 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import "./_PerformanceChart.scss";
-import UserService from "../../../services/UserService";
 import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer } from "recharts";
 import { Performance } from "../../../models/performance.model";
 
-interface UserId {
-    userId: number | undefined;
+interface PerformanceChartProps {
+    userPerformance: Performance | undefined;
 }
 
 interface PerformanceData {
@@ -13,25 +12,9 @@ interface PerformanceData {
     kind: string;
 }
 
-const PerformanceChart:FC<UserId> = ({ userId }) => {
-    const [ userPerformance, setUserPerformance ] = useState<Performance | undefined>();
-
-    useEffect(() => {
-        const fetchUserPerformance = async () => {
-            try {
-                if (userId) {
-                    const userPerformanceData = await UserService.getUserPerformance(userId);
-                    setUserPerformance(userPerformanceData);
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
-        fetchUserPerformance();
-    }, [userId])
-
+const PerformanceChart:FC<PerformanceChartProps> = ({ userPerformance }) => {
     let formatedData: PerformanceData[] = [];
+    
     if (userPerformance && userPerformance.data) {
         formatedData = userPerformance.data.map((item) => ({
             value: item.value,

@@ -1,7 +1,9 @@
+@import '@scss/variables';
+
 .key-data-card {
     display: flex;
     align-items: center;
-    background-color: rgba(241, 241, 241, 0.3647058824);
+    background-color: $sdy-clr;
     margin: 1em;
     padding: 1.5em;
     width: 180px;

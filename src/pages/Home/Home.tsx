@@ -8,15 +8,15 @@ import DisplayKeyDataCard from "../../components/KeyData/DisplayKeyDataCard/Disp
 import GoalChart from "../../components/Charts/GoalChart/GoalChart";
 import PerformanceChart from "../../components/Charts/PerformanceChart/PerformanceChart";
 import AverageSessionChart from "../../components/Charts/AverageSessionChart/AverageSessionChart";
+import ActivityChart from "../../components/Charts/ActivityChart/ActivityChart";
 
 const Home:FC = () => {
-    const { userData, isLoading } = useContext(AuthContext);
+    const { userData, userActivity, userAverageSession, userPerformance, isLoading } = useContext(AuthContext);
 
     if (isLoading) {
         return <p>Chargement...</p>;
     }
 
-    const userId = userData?.id;
     const firstName = userData?.userInfos.firstName;
     const keyData = userData?.keyData;
     const todayScore = userData?.todayScore || userData?.score;
@@ -25,14 +25,19 @@ const Home:FC = () => {
         <>
             <Header />
             <DisplaySidebar />
-            <Title firstName={firstName} />
-            <section className="charts">
-                <div className="charts-medium">
-                    <AverageSessionChart userId={userId} />
-                    <PerformanceChart userId={userId} />
-                    <GoalChart score={todayScore} />
+            <section className="home">
+                <Title firstName={firstName} />
+                <div className="container">
+                    <div className="charts">
+                        <ActivityChart userActivity={userActivity} />
+                        <div className="charts-medium">
+                            <AverageSessionChart userAverageSession={userAverageSession} />
+                            <PerformanceChart userPerformance={userPerformance} />
+                            <GoalChart score={todayScore} />
+                        </div>
+                    </div>
+                    <DisplayKeyDataCard keyData={keyData} />
                 </div>
-                <DisplayKeyDataCard keyData={keyData} />
             </section>
         </>
     )

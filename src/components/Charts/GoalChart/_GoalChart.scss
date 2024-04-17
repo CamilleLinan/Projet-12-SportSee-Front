@@ -1,7 +1,9 @@
+@import '@scss/variables';
+
 .score-container {
     width: 250px;
     height: 250px;
-    background-color: #FBFBFB;
+    background-color: $sdy-clr;
     position: relative;
 
 	&-title {
@@ -13,21 +15,20 @@
 		font-weight: 500;
         margin: 0;
 	}
+
 	&-label {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
 		color: #9b9eac;
-        background-color: #FFF;
+        background-color: white;
         padding: 1.3em 1.9em;
         border-radius: 50%;
 		font-weight: 500;
 		line-height: 1.625rem;
 		text-align: center;
-		p {
-			margin: 0;
-		}
+
 		.percent {
 			color: #282d30;
 			font-size: 1.625rem;

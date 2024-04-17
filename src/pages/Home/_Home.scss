@@ -1,8 +1,16 @@
+.home {
+    margin-left: 11em;
+}
+
+.container {
+    display: flex;
+}
+
 .charts {
     display: flex;
+    flex-direction: column;
 
     &-medium {
-        margin-left: 11em;
         display: flex;
         justify-content: space-between;
         width: 80%;

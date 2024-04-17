@@ -1,7 +1,9 @@
+@import '@scss/variables';
+
 .sessions-container {
     width: 250px;
     height: 250px;
-    background-color: #FF0101;
+    background-color: $pry-clr;
     position: relative;
     display: flex;
     align-items: center;
@@ -13,20 +15,12 @@
         position: absolute;
         top: 20px;
         left: 20px;
-
-        & p {
-            margin: 0;
-        }
     }
 }
 
 .custom-tooltip {
-    background-color: #FFFFFF;
+    background-color: white;
     padding: 10px;
     font-size: 14px;
     font-weight: 500;
-
-    & p {
-        margin: 0;
-    }
 }

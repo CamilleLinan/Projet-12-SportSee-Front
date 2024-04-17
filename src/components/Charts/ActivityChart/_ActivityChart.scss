@@ -1,0 +1,29 @@
+@import '@scss/variables';
+
+.activity-container {
+    background-color: $sdy-clr;
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius: 5px;
+    
+    &-label {
+        position: absolute;
+        left: 30px;
+        top: 24px;
+    }
+}
+  
+.custom-tooltip {
+    background-color: $pry-clr;
+    color: white;
+    margin-left: 10px;
+    padding: 10px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+}

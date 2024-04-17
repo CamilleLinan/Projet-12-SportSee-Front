@@ -1,12 +1,11 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import "./_AverageSessionChart.scss";
-import UserService from "../../../services/UserService";
 import { AverageSession } from "../../../models/averageSession.model";
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import CustomTooltip from "./CustomTooltip";
 
-interface UserId {
-    userId: number | undefined;
+interface AverageSessionChartProps {
+    userAverageSession: AverageSession | undefined;
 }
 
 interface AverageSessionData {
@@ -14,25 +13,9 @@ interface AverageSessionData {
     duration: number;
 }
 
-const AverageSessionChart:FC<UserId> = ({ userId }) => {
-    const [ userAverageSession, setUserAverageSession ] = useState<AverageSession | undefined>();
-
-    useEffect(() => {
-        const fetchUserAverageSession = async () => {
-            try {
-                if (userId) {
-                    const userAverageSessionData = await UserService.getUserAverageSessions(userId);
-                    setUserAverageSession(userAverageSessionData);
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
-        fetchUserAverageSession();
-    }, [userId]);
-
+const AverageSessionChart:FC<AverageSessionChartProps> = ({ userAverageSession }) => {
     let formatedData: AverageSessionData[] = [];
+    
     if (userAverageSession && userAverageSession.sessions) {
         const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
         formatedData = userAverageSession?.sessions.map((session, index) => ({

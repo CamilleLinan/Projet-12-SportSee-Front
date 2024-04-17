@@ -1,22 +1,21 @@
 import { FC } from "react";
-import "./_AverageSessionChart.scss";
+import "./_ActivityChart.scss";
 import { NameType, Payload, ValueType } from "recharts/types/component/DefaultTooltipContent";
 
-interface CustomToolipProps {
+interface CustomTooltipProps {
     active: boolean | undefined,
     payload: Payload<ValueType, NameType>[] | undefined,
 }
 
-const CustomToolip:FC<CustomToolipProps> = ({ active, payload }) => {
+const CustomTooltip:FC<CustomTooltipProps> = ({ active, payload }) => {
     if (!active || !payload || payload.length === 0) return null;
 
     return (
         <div className="custom-tooltip">
-            <p>
-                {payload[0].value} min
-            </p>
+            <p>{`${payload[0].value}kg`}</p>
+            <p>{`${payload[1].value}Kcal`}</p>
         </div>
     );
 };
 
-export default CustomToolip;
+export default CustomTooltip;
