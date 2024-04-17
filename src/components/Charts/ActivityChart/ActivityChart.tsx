@@ -65,7 +65,7 @@ const ActivityChart:FC<ActivityProps> = ({ userActivity }) => {
                     <Bar
                         name="Calories brûlées (kCal)"
                         dataKey="calories"
-                        fill="#E60000"
+                        fill="#FF0101"
                         radius={[3.5, 3.5, 0, 0]}
                     />
                 </BarChart>

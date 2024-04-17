@@ -1,0 +1,11 @@
+@mixin chart-medium {
+    position: relative;
+    min-width: 242px;
+    width: 250px;
+    height: 240px;
+    margin: 0 0.5em;
+	border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

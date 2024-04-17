@@ -1,13 +1,9 @@
 @import '@scss/variables';
+@import '@scss/mixins';
 
 .radar-container {
-    width: 250px;
-    height: 250px;
+    @include chart-medium;
     background-color: $try-clr;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .recharts-responsive-container {

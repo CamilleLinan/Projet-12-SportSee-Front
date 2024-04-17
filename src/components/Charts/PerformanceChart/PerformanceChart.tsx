@@ -26,7 +26,7 @@ const PerformanceChart:FC<PerformanceChartProps> = ({ userPerformance }) => {
         <section className="radar-container">
             <ResponsiveContainer width={"100%"} height={"100%"}>
                 <RadarChart data={formatedData}>
-                    <PolarGrid />
+                    <PolarGrid gridType="polygon" radialLines={false} />
                     <PolarAngleAxis dataKey="kind" tick={{ fill: "white", fontSize: 13 }} />
                     <PolarRadiusAxis angle={30} domain={[0, 280]} tick={false} axisLine={false} />
                     <Radar name="" dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7} />

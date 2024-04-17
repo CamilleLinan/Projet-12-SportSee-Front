@@ -1,11 +1,12 @@
 @import '@scss/variables';
 
 .title {
-    margin-top: 7em;
-
+    margin: 0 0.5em;
+    
     & h1 {
         font-weight: 500;
         font-size: 40px;
+        margin: 0;
     }
 
     &-firstname {
@@ -15,5 +16,6 @@
     & h2 {
         font-weight: normal;
         font-size: 20px;
+        margin-bottom: 2em;
     }
 }
