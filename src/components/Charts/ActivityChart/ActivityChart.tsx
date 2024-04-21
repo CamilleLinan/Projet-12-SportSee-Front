@@ -9,10 +9,9 @@ interface ActivityProps {
 }
 
 const ActivityChart:FC<ActivityProps> = ({ userActivity }) => {
-    console.log(userActivity);
-    // const formatDay = (date) => {
-    //     return new Date(date).getDate()
-    //   }
+    const formatDay = (date: Date) => {
+        return new Date(date).getDate().toString()
+    }
 
     return (
         <section className="activity-container">
@@ -29,25 +28,34 @@ const ActivityChart:FC<ActivityProps> = ({ userActivity }) => {
                         bottom: 25,
                     }}
                 >
-                    <CartesianGrid strokeDasharray="3 3" />
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis
                         dataKey="day"
-                        // tickFormatter={formatDay}
+                        tickFormatter={formatDay}
                         tickLine={false}
                         tickMargin={16}
                         tick={{
-                            stroke: '#9B9EAC',
+                            stroke: '#d0d2d9',
                             fontSize: 14,
                             fontWeight: 500,
                         }}
                     />
-                    <YAxis axisLine={false} tickLine={false} orientation="right" />
+                    <YAxis 
+                        axisLine={false} 
+                        tickLine={false} 
+                        orientation="right" 
+                        interval={1} 
+                        tick={{
+                            stroke: '#d0d2d9',
+                            fontSize: 14,
+                            fontWeight: 500,
+                        }} 
+                    />
                     <Tooltip
                         content={({ active, payload }) => 
                             <CustomTooltip active={active} payload={payload} /> 
                         }
                         wrapperStyle={{ outline: 'none' }}
-                        trigger={"click"}
                     />
                     <Legend
                         iconType="circle"

@@ -12,11 +12,11 @@
         top: 20px;
         left: 20px;
     }
-}
 
-.custom-tooltip {
-    background-color: white;
-    padding: 10px;
-    font-size: 14px;
-    font-weight: 500;
+    & .custom-tooltip {
+        background-color: white;
+        padding: 10px;
+        font-size: 14px;
+        font-weight: 500;
+    }
 }

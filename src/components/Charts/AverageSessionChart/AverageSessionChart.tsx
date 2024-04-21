@@ -1,8 +1,9 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import "./_AverageSessionChart.scss";
 import { AverageSession } from "../../../models/averageSession.model";
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import CustomTooltip from "./CustomTooltip";
+import CustomCursor from "./CustomCursor";
 
 interface AverageSessionChartProps {
     userAverageSession: AverageSession | undefined;
@@ -14,8 +15,14 @@ interface AverageSessionData {
 }
 
 const AverageSessionChart:FC<AverageSessionChartProps> = ({ userAverageSession }) => {
-    let formatedData: AverageSessionData[] = [];
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        setMousePosition({ x: e.pageX, y: e.pageY });
+      };
     
+    let formatedData: AverageSessionData[] = [];
+
     if (userAverageSession && userAverageSession.sessions) {
         const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
         formatedData = userAverageSession?.sessions.map((session, index) => ({
@@ -25,12 +32,12 @@ const AverageSessionChart:FC<AverageSessionChartProps> = ({ userAverageSession }
     }
 
     return (
-        <section className="sessions-container">
+        <section className="sessions-container" onMouseMove={(e) => handleMouseMove(e)}>
             <div className="sessions-container-label">
 				<p>Durée</p>
 				<p>sessions</p>
 			</div>
-            <ResponsiveContainer width={"100%"} height={"90%"}>
+            <ResponsiveContainer width={"100%"} height={"100%"}>
                 <LineChart data={formatedData}>
                     <XAxis
                         dataKey="day"
@@ -41,25 +48,20 @@ const AverageSessionChart:FC<AverageSessionChartProps> = ({ userAverageSession }
                         padding={{ left: 10, right: 10 }}
                     />
                     <YAxis hide domain={[0, 'dataMax + 30']} />
-                    <Tooltip 
-                        content={({ active, payload }) => 
-                            <CustomTooltip active={active} payload={payload} /> 
-                        }
-                        cursor={{
-                            stroke: "rgba(0, 0, 0, 0.1)",
-                            strokeWidth: "20%",
-                            style: {
-                                transition: "all 1s ease-in-out", 
-                            }
-                        }}
-                        // trigger={"click"}
-                    />
                     <Line
                         type="monotone"
                         dataKey="duration"
                         stroke="#FFFFFF"
                         yAxisId={0}
                         dot={false}
+                    />
+                    <Tooltip 
+                        content={({ active, payload }) => 
+                            <CustomTooltip active={active} payload={payload} /> 
+                        }
+                        cursor={
+                            <CustomCursor x={mousePosition.x} y={mousePosition.y} />
+                        }
                     />
                 </LineChart>
             </ResponsiveContainer>
