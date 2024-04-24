@@ -46,8 +46,9 @@ const AverageSessionChart:FC<AverageSessionChartProps> = ({ userAverageSession }
                         tick={{ fontSize: 14, fill: '#FFFFFF', opacity: 0.5 }}
                         dy={15}
                         padding={{ left: 10, right: 10 }}
+                        tickMargin={-9}
                     />
-                    <YAxis hide domain={[0, 'dataMax + 30']} />
+                    <YAxis hide domain={[0, 'dataMax + 30']}  />
                     <Line
                         type="monotone"
                         dataKey="duration"

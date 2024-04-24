@@ -15,6 +15,16 @@
         top: 24px;
     }
 
+    & .recharts-default-legend {
+        display: flex;
+        justify-content: flex-end;
+
+        & .recharts-legend-item {
+            display: flex !important;
+            align-items: center;
+        }
+    }
+
     & .custom-tooltip {
         background-color: $pry-clr;
         color: white;
