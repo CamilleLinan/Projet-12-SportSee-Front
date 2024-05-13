@@ -13,6 +13,7 @@
 	overflow: hidden;
 	background: $nav-bg;
 	text-align: center;
+    z-index: 10;
 
     &-buttons {
 		margin-top: -6em;

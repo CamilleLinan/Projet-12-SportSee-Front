@@ -1,10 +1,13 @@
+@import '@scss/variables';
+
 .key-data-card {
     display: flex;
     align-items: center;
-    background-color: rgba(241, 241, 241, 0.3647058824);
-    margin: 1em;
+    background-color: $sdy-clr;
+    // margin: 0 1em;
     padding: 1.5em;
     width: 180px;
+    border-radius: 5px;
 
     &-bg-icon {
         display: flex;
@@ -39,5 +42,14 @@
 
     &-number {
         font-weight: bold;
+    }
+}
+
+@media(max-width: 1280px) {
+    .key-data-card {
+        width: 15%;
+        min-width: fit-content;
+        padding: 1em;
+        margin: 0.5em 0;
     }
 }

@@ -1,9 +1,9 @@
 export interface Activity {
     userId: number;
-    sessions: Session[];
+    sessions: AcitivtySession[];
 }
 
-export interface Session {
+export interface AcitivtySession {
     day: string;
     kilogram: number;
     calories: number;

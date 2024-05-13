@@ -1,0 +1,41 @@
+@import '@scss/variables';
+
+.activity-container {
+    background-color: $sdy-clr;
+    position: relative;
+    display: flex;
+    width: -webkit-fill-available;
+    height: 300px;
+    border-radius: 5px;
+    margin: 0 0.5em;
+    
+    &-label {
+        position: absolute;
+        left: 30px;
+        top: 24px;
+    }
+
+    & .recharts-default-legend {
+        display: flex;
+        justify-content: flex-end;
+
+        & .recharts-legend-item {
+            display: flex !important;
+            align-items: center;
+        }
+    }
+
+    & .custom-tooltip {
+        background-color: $pry-clr;
+        color: white;
+        margin-left: 10px;
+        padding: 10px;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 500;
+    }
+}

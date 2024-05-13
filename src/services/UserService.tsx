@@ -1,6 +1,8 @@
 import axios from "axios";
-import { User } from "../modeles/user.modele";
-import { Activity } from "../modeles/activity.modele";
+import { User } from "../models/user.model";
+import { Activity } from "../models/activity.model";
+import { Performance } from "../models/performance.model";
+import { AverageSession } from "../models/averageSession.model";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -21,7 +23,6 @@ const getUserActivity = async (userId: number): Promise<Activity | undefined> =>
         const response = 
             await axios.get(`${BASE_URL}/user/${userId}/activity`);
             const userActivityData = response.data.data;
-            console.log(response);
         return userActivityData;
     } catch (error) {
         console.log('unknow user', error);
@@ -29,4 +30,28 @@ const getUserActivity = async (userId: number): Promise<Activity | undefined> =>
     }
 }
 
-export default { getUserById, getUserActivity };
+const getUserPerformance = async (userId: number): Promise<Performance | undefined> => {
+    try {
+        const response = 
+            await axios.get(`${BASE_URL}/user/${userId}/performance`);
+            const userPerformanceData = response.data.data;
+        return userPerformanceData;
+    } catch (error) {
+        console.log('unknow user', error);
+        return undefined;
+    }
+}
+
+const getUserAverageSessions = async (userId: number): Promise<AverageSession | undefined> => {
+    try {
+        const response = 
+            await axios.get(`${BASE_URL}/user/${userId}/average-sessions`);
+            const userAverageSessionsData = response.data.data;
+        return userAverageSessionsData;
+    } catch (error) {
+        console.log('unknow user', error);
+        return undefined;
+    }
+}
+
+export default { getUserById, getUserActivity, getUserPerformance, getUserAverageSessions };
