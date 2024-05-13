@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react"
-import UserService from "../services/UserService";
+import UserService from "../services/user.service";
 import { User } from "../models/user.model";
 import { AverageSession } from "../models/averageSession.model";
 import { Performance } from "../models/performance.model";
