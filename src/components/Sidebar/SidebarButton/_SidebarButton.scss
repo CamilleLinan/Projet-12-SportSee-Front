@@ -1,0 +1,16 @@
+.sidebar-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	width: 2.8em;
+	height: 2.8em;
+	margin-bottom: 1.25em;
+	border: none;
+	border-radius: 6px;
+	background-color: white;
+
+	&-icon {
+		width: 2em;
+		height: 2em;
+	}
+}

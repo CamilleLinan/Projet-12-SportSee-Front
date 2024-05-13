@@ -1,0 +1,55 @@
+@import '@scss/variables';
+
+.key-data-card {
+    display: flex;
+    align-items: center;
+    background-color: $sdy-clr;
+    // margin: 0 1em;
+    padding: 1.5em;
+    width: 180px;
+    border-radius: 5px;
+
+    &-bg-icon {
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+        width: 50px;
+        height: 50px;
+        margin-right: 1em;
+
+        &-calories {
+            background-color: hsla(0, 100%, 50%, 0.102);
+        }
+
+        &-proteines {
+            background-color: hsla(204, 100%, 65%, 0.102);
+        }
+
+        &-glucides {
+            background-color: hsla(48, 95%, 56%, 0.102);
+        }
+
+        &-lipides {
+            background-color: hsla(343, 98%, 65%, 0.102);
+        }
+
+    }
+
+    & img {
+        padding: 0.5em;
+        margin: auto;
+    }
+
+    &-number {
+        font-weight: bold;
+    }
+}
+
+@media(max-width: 1280px) {
+    .key-data-card {
+        width: 15%;
+        min-width: fit-content;
+        padding: 1em;
+        margin: 0.5em 0;
+    }
+}
