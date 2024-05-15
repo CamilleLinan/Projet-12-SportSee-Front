@@ -4,6 +4,10 @@
 .radar-container {
     @include chart-medium;
     background-color: $try-clr;
+
+    & .error-text {
+        color: white;
+    }
 }
 
 .recharts-responsive-container {

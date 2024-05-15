@@ -2,6 +2,10 @@
     margin-top: 6em;
     margin-left: 10em;
     margin-right: 4.5em;
+
+    & > .error-container {
+        margin-top: 250px;
+    }
 }
 
 .container {

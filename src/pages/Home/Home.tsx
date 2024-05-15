@@ -9,38 +9,56 @@ import GoalChart from "../../components/Charts/GoalChart/GoalChart";
 import PerformanceChart from "../../components/Charts/PerformanceChart/PerformanceChart";
 import AverageSessionChart from "../../components/Charts/AverageSessionChart/AverageSessionChart";
 import ActivityChart from "../../components/Charts/ActivityChart/ActivityChart";
+import Error from "../../components/Error/Error";
 
-const Home:FC = () => {
-    const { userData, userActivity, userAverageSession, userPerformance, isLoading } = useContext(AuthContext);
+const Home: FC = () => {
+  const {
+    userData,
+    userActivity,
+    userAverageSession,
+    userPerformance,
+    error,
+    isLoading,
+  } = useContext(AuthContext);
 
-    if (isLoading) {
-        return <p>Chargement...</p>;
-    }
+  if (isLoading) {
+    return <p>Chargement...</p>;
+  }
 
-    const firstName = userData?.userInfos.firstName;
-    const keyData = userData?.keyData;
-    const todayScore = userData?.todayScore || userData?.score;
+  const firstName = userData?.userInfos.firstName;
+  const keyData = userData?.keyData;
+  const todayScore = userData?.todayScore || userData?.score;
 
-    return (
-        <>
-            <Header />
-            <DisplaySidebar />
-            <section className="home">
-                <Title firstName={firstName} />
-                <div className="container">
-                    <div className="charts">
-                        <ActivityChart userActivity={userActivity} />
-                        <div className="charts-medium">
-                            <AverageSessionChart userAverageSession={userAverageSession} />
-                            <PerformanceChart userPerformance={userPerformance} />
-                            <GoalChart score={todayScore} />
-                        </div>
-                    </div>
-                    <DisplayKeyDataCard keyData={keyData} />
+  return (
+    <>
+      <Header />
+      <DisplaySidebar />
+      <section className="home">
+        {!error ? (
+          <>
+            <Title firstName={firstName} />
+            <div className="container">
+              <div className="charts">
+                <ActivityChart userActivity={userActivity} />
+                <div className="charts-medium">
+                  <AverageSessionChart
+                    userAverageSession={userAverageSession}
+                  />
+                  <PerformanceChart userPerformance={userPerformance} />
+                  <GoalChart score={todayScore} />
                 </div>
-            </section>
-        </>
-    )
+              </div>
+              <DisplayKeyDataCard keyData={keyData} />
+            </div>
+          </>
+        ) : (
+            <Error 
+              textError="Une erreur est apparue lors de la récupération des données car l'utilisateur n'existe pas."  
+            />
+        )}
+      </section>
+    </>
+  );
 };
 
 export default Home;
