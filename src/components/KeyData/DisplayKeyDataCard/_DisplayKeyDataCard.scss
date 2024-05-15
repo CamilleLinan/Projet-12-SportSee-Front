@@ -3,6 +3,10 @@
     flex-direction: column;
     justify-content: space-between;
     margin: 0 0.5em 0 1.5em;
+
+    & .error-container {
+        width: 180px;
+    }
 }
 
 @media(max-width: 1280px) {

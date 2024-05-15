@@ -15,6 +15,13 @@
         top: 24px;
     }
 
+    & .error-container {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
     & .recharts-default-legend {
         display: flex;
         justify-content: flex-end;

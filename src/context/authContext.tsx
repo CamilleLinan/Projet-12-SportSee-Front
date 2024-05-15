@@ -10,6 +10,7 @@ interface UserData {
     userActivity: Activity | undefined;
     userAverageSession: AverageSession | undefined;
     userPerformance: Performance | undefined;
+    error: boolean;
     isLoading: boolean;
 }
 
@@ -17,13 +18,19 @@ interface ProviderProps {
     children: React.ReactNode;
 }
 
-const AuthContext = createContext<UserData>({ userData: undefined, userActivity: undefined, userAverageSession: undefined, userPerformance: undefined, isLoading: true });
+const AuthContext = createContext<UserData>({ 
+    userData: undefined, 
+    userActivity: undefined, 
+    userAverageSession: undefined, 
+    userPerformance: undefined, 
+    error: false, isLoading: true });
 
 export const AuthContextProvider = (props: ProviderProps) => {
     const [ userData, setUserData ] = useState<User | undefined>();
     const [ userActivity, setUserActivity ] = useState<Activity | undefined>();
     const [ userAverageSession, setUserAverageSession ] = useState<AverageSession | undefined>();
     const [ userPerformance, setUserPerformance ] = useState<Performance | undefined>();
+    const [ error, setError ] = useState<boolean>(false);
     const [ isLoading, setIsLoading ] = useState(true);
 
     useEffect(() => {
@@ -33,8 +40,11 @@ export const AuthContextProvider = (props: ProviderProps) => {
             try {
                 const userData = await UserService.getUserById(userId);
                 setUserData(userData);
+                if (!userData) {
+                    setError(true);
+                }
             } catch (error) {
-                console.log(error);
+                setError(true);
             } finally {
                 setIsLoading(false);
             }
@@ -44,8 +54,11 @@ export const AuthContextProvider = (props: ProviderProps) => {
             try {
                 const userActivity = await UserService.getUserActivity(userId);
                 setUserActivity(userActivity);
+                if (!userActivity) {
+                    setError(true);
+                }
             } catch (error) {
-                console.log(error);
+                setError(true);
             } finally {
                 setIsLoading(false);
             }
@@ -55,8 +68,11 @@ export const AuthContextProvider = (props: ProviderProps) => {
             try {
                 const userAverageSessionData = await UserService.getUserAverageSessions(userId);
                 setUserAverageSession(userAverageSessionData);
+                if (!userAverageSessionData) {
+                    setError(true);
+                }
             } catch (error) {
-                console.log(error);
+                setError(true);
             } finally {
                 setIsLoading(false);
             }
@@ -64,12 +80,13 @@ export const AuthContextProvider = (props: ProviderProps) => {
 
         const fetchUserPerformance = async () => {
             try {
-                if (userId) {
-                    const userPerformanceData = await UserService.getUserPerformance(userId);
-                    setUserPerformance(userPerformanceData);
+                const userPerformanceData = await UserService.getUserPerformance(userId);
+                setUserPerformance(userPerformanceData);
+                if (!userPerformanceData) {
+                    setError(true);
                 }
             } catch (error) {
-                console.log(error);
+                setError(true);
             } finally {
                 setIsLoading(false);
             }
@@ -86,6 +103,7 @@ export const AuthContextProvider = (props: ProviderProps) => {
         userActivity: userActivity,
         userAverageSession: userAverageSession,
         userPerformance: userPerformance,
+        error: error,
         isLoading: isLoading
     };
 
